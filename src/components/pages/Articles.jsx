@@ -12,7 +12,7 @@ export const Articles = () => {
         .then((body)=>{
             setTimeout(()=>{
                 setFetchedArticles(body.articles)
-            setIsLoading(false)
+                setIsLoading(false)
             }, 1000)
             
         })
@@ -23,7 +23,7 @@ export const Articles = () => {
     const makeList = (fetchedData)=>{
         if(!fetchedData) setIsLoading(true)
         return fetchedData.map((cardInfo)=>
-        <Link to="/articles/:article_id"> 
+        <Link to={`/articles/${cardInfo.article_id}`}> 
             <li> <Card info={cardInfo}/> </li>
         </Link>
         )
