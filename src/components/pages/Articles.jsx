@@ -18,12 +18,10 @@ export const Articles = () => {
         })
     }, [])
 
-    const testData = ["1", "2", "3", "4", "5"]
-
     const makeList = (fetchedData)=>{
         if(!fetchedData) setIsLoading(true)
         return fetchedData.map((cardInfo)=>
-        <Link to={`/articles/${cardInfo.article_id}`}> 
+        <Link to={`/articles/${cardInfo.article_id}`} key={cardInfo.article_id}> 
             <li> <Card info={cardInfo}/> </li>
         </Link>
         )
