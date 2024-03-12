@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '../Card';
 import { Link } from 'react-router-dom';
+import { fetchArticles } from '../../../utils/utils';
 
 export const Articles = () => {
     const [fetchedArticles, setFetchedArticles] = useState("")
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(()=>{
-        fetch("https://nc-news-8n39.onrender.com/api/articles")
-        .then((response)=>response.json())
-        .then((body)=>{
+        fetchArticles()
+        .then((response)=>{
             setTimeout(()=>{
-                setFetchedArticles(body.articles)
+                setFetchedArticles(response)
                 setIsLoading(false)
             }, 1000)
             
