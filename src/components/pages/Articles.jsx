@@ -12,18 +12,16 @@ export const Articles = () => {
         .then((body)=>{
             setTimeout(()=>{
                 setFetchedArticles(body.articles)
-            setIsLoading(false)
+                setIsLoading(false)
             }, 1000)
             
         })
     }, [])
 
-    const testData = ["1", "2", "3", "4", "5"]
-
     const makeList = (fetchedData)=>{
         if(!fetchedData) setIsLoading(true)
         return fetchedData.map((cardInfo)=>
-        <Link to="/articles/:article_id"> 
+        <Link to={`/articles/${cardInfo.article_id}`} key={cardInfo.article_id}> 
             <li> <Card info={cardInfo}/> </li>
         </Link>
         )
