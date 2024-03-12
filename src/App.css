@@ -41,14 +41,16 @@ a {
     }
 }
 .page {
-    align-self: center;
+    display: flex;
+    flex-direction: column;
     margin: 1rem 0;
     padding: 0 1rem;
     border: inset;
     border-radius: 0.5rem;
+    justify-content: center;
 
     & h2 {
-        text-shadow: .2rem .2rem .2rem rgba(0, 0, 0, 0.274);
+        text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.274);
     }
 
     & ul {
@@ -59,8 +61,13 @@ a {
         padding: 0;
     }
 }
-.body{
+.body {
     color: black;
+    background-color: rgb(221, 221, 221);
+    border-radius: 1rem;
+    padding: 0.5rem 0.8rem;
+    margin: auto auto;
+    max-width: 800px;
 }
 
 .card {
@@ -79,6 +86,19 @@ a {
     }
     & img {
     }
+}
+
+.comment {
+    box-shadow: 0.2rem 0.2rem 0.2rem rgb(184, 184, 184);
+    font-size: 0.8rem;
+    color: black;
+    border-left: solid 0.2rem red;
+    background-color: rgb(236, 236, 236);
+    text-align: start;
+    border-radius: 0.4rem;
+    margin: 0.5rem auto;
+    padding: 0 1rem;
+    max-width: 600px;
 }
 
 @keyframes load {
