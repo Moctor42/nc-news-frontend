@@ -1,4 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
 #root {
+    scroll-behavior: smooth;
+
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
@@ -31,6 +37,10 @@ a {
     text-decoration: none;
 }
 
+article {
+    margin-bottom: 1rem;
+}
+
 .navbutton {
     font-size: 1.3rem;
     color: red;
@@ -47,6 +57,17 @@ a {
         box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.425);
         text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.384);
     }
+}
+
+select {
+    color: red;
+    background-color: white;
+    font-size: 1.2rem;
+    border-radius: 0.3rem;
+    border: none;
+    outline: solid 0.2rem red;
+    padding: 0.4rem;
+    min-width: 20rem;
 }
 
 .votebuttons {
@@ -66,7 +87,10 @@ a {
         transition: scale 0.2s cubic-bezier(0.075, 0.82, 0.165, 1.5);
 
         &:hover {
-            scale: 1.2;
+            scale: 1.1;
+        }
+        &:active {
+            scale: 0.9;
         }
     }
 
@@ -85,14 +109,68 @@ a {
 }
 
 .comments {
+    padding: 0;
+}
+
+.comment {
+    box-shadow: 0.2rem 0.2rem 0.2rem rgb(184, 184, 184);
+    font-size: 0.8rem;
+    color: black;
+    border-left: solid 0.2rem red;
+    background-color: rgb(236, 236, 236);
+    text-align: start;
+    border-radius: 0.4rem;
+    margin: 1rem auto;
+    padding: 0.1rem 1rem;
+    max-width: 600px;
+}
+.comment-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: start;
+    margin: auto;
+
+    max-width: 600px;
+    & textarea {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        color: black;
+        width: 100%;
+        height: 4rem;
+        background-color: white;
+        border-radius: 0.3rem;
+        border: solid 0.1rem red;
+        margin-bottom: 0.5rem;
+        resize: vertical;
+    }
+    & button {
+        font-size: 1.2rem;
+        color: red;
+        padding: 0.5rem 1.1rem;
+
+        background-color: rgb(245, 245, 245);
+        border: solid red;
+        border-radius: 0.8rem;
+        transition: scale 0.2s cubic-bezier(0.075, 0.82, 0.165, 1.5);
+
+        &:hover {
+            scale: 1.05;
+        }
+        &:active {
+            scale: 0.95;
+        }
+    }
 }
 
 .scrollcontainer {
     display: flex;
+    z-index: 1;
 
-    border: solid 0.1rem rgb(182, 182, 182);
     overflow: clip scroll;
-    margin: 1rem auto;
+    margin: auto auto;
+    border-top: solid red;
+    border-radius: 1rem;
 }
 .article-page {
     justify-content: center;
@@ -110,8 +188,8 @@ a {
     }
 
     & ul {
-        margin: auto 1rem;
-        padding: 0 2rem;
+        margin: 1rem auto;
+        padding: 0 0.2rem;
         list-style: none;
         height: 100%;
     }
@@ -121,7 +199,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    height: calc(100svh - 10rem);
+    height: calc(100svh - 16rem);
 }
 
 .body {
@@ -151,19 +229,6 @@ a {
     }
 }
 
-.comment {
-    box-shadow: 0.2rem 0.2rem 0.2rem rgb(184, 184, 184);
-    font-size: 0.8rem;
-    color: black;
-    border-left: solid 0.2rem red;
-    background-color: rgb(236, 236, 236);
-    text-align: start;
-    border-radius: 0.4rem;
-    margin: 0.5rem auto;
-    padding: 0 1rem;
-    max-width: 600px;
-}
-
 @keyframes load {
     0% {
         scale: 1;
@@ -177,4 +242,5 @@ a {
 
 .loading {
     animation: load 0.2s ease-out 0s infinite alternate;
+    margin: auto;
 }

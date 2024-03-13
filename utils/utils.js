@@ -27,6 +27,19 @@ export const patchArticle = (articleId, body) => {
         .catch((err) => console.log(err, 'patchArticle error!'))
 }
 
+export const postComment = (articleId, body)=>{
+    return axios
+        .post(`https://nc-news-8n39.onrender.com/api/articles/${articleId}/comments`, body)
+        .catch((err) => console.log(err.response.data, 'postComment error!'))
+}
+
+export const fetchUsers = () => {
+    return axios
+    .get('https://nc-news-8n39.onrender.com/api/users/')
+    .then(response => response.data.users)
+    .catch(err => console.log(err, 'fetchUsers error!'))
+}
+
 export const formatDate = (timestamp) => {
     const date = new Date(timestamp)
     const dateString = date.toUTCString().split(' ').slice(0, 4).join(' ')
