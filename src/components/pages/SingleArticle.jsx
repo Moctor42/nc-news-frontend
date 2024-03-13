@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Comments } from '../Comments'
 import { fetchSingleArticle, formatDate, patchArticle } from '../../../utils/utils'
+import { UserContext } from '../../contexts/User'
 
 export const SingleArticle = () => {
+    const { user } = useContext(UserContext)
     const { article_id } = useParams()
+
     const [article, setArticle] = useState('')
     const [isLoading, setIsLoading] = useState(true)
     const [vote, setVote] = useState(0)
@@ -69,7 +72,7 @@ export const SingleArticle = () => {
                     </div>
                 </article>
             )}
-            <Comments article_id={article_id} />
+            <Comments article_id={article_id} user={user}/>
         </div>
     )
 }

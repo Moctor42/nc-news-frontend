@@ -1,15 +1,16 @@
-import { useState } from 'react'
 import './App.css'
 import { Navigation } from './components/Navigation'
 import { Route, Routes } from 'react-router-dom'
 import { Home } from './components/pages/Home'
 import { Articles } from './components/pages/Articles'
 import { SingleArticle } from './components/pages/SingleArticle'
+import { UserSelect } from './components/UserSelect'
 
 function App() {
     return (
         <>
-            <h1>NC News</h1>            
+            <h1>NC News</h1>
+            <UserSelect />
             <Navigation />
             <Routes>
                 <Route path="/" element={<Home />} />
