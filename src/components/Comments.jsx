@@ -31,6 +31,8 @@ export const Comments = ({ article_id }) => {
     }
 
     return (
-        <div>{isLoading ? <h1 className="loading"> Loading Comments... </h1> : <ul>{listComments(fetchedComments)}</ul>}</div>
+        <div className='comment-section'>
+            {isLoading ? <h1 className="loading"> Loading Comments... </h1> : <ul className='comments'>{listComments(fetchedComments)}</ul>}
+        </div>
     )
 }

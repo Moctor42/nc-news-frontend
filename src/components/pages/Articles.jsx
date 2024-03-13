@@ -28,11 +28,14 @@ export const Articles = () => {
     }
 
     return (
-        <div className='page'>
+        <div className='page page-style'>
             <h2>Articles</h2>
             {isLoading ? 
             <h2 className='loading'>loading...</h2> : 
-            <ul> {makeList(fetchedArticles)} </ul>}
+                <div className='scrollcontainer'>
+                    <ul> {makeList(fetchedArticles)} </ul>
+                </div>
+                }
             
         </div>
     );

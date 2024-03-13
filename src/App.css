@@ -3,7 +3,10 @@
     line-height: 1.5;
     font-weight: 400;
 
-    max-width: 1280px;
+    width: calc(100svw - 2rem);
+    height: calc(100svh - 2rem);
+
+    max-width: 1920px;
     margin: 0 auto;
     padding: 0rem;
     text-align: center;
@@ -19,10 +22,15 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+    max-height: 95svh;
+}
+
 a {
     color: inherit;
     text-decoration: none;
 }
+
 .navbutton {
     font-size: 1.3rem;
     color: red;
@@ -40,27 +48,82 @@ a {
         text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.384);
     }
 }
-.page {
+
+.votebuttons {
     display: flex;
-    flex-direction: column;
-    margin: 1rem 0;
-    padding: 0 1rem;
+    flex-direction: row;
+    justify-content: center;
+    box-sizing: content-box;
+
+    & button {
+        border: solid rgba(255, 255, 255, 0);
+        border-radius: 0.3rem;
+        padding: 0.2rem 0.6rem;
+        margin: auto 0.5rem;
+        font-size: 1.2rem;
+        text-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.26);
+
+        transition: scale 0.2s cubic-bezier(0.075, 0.82, 0.165, 1.5);
+
+        &:hover {
+            scale: 1.2;
+        }
+    }
+
+    & .like {
+        color: rgb(11, 90, 0);
+        outline: solid rgb(8, 247, 0);
+        outline-width: 0rem;
+        background-color: rgb(241, 255, 238);
+    }
+    & .dislike {
+        color: rgb(114, 0, 0);
+        outline: solid rgb(247, 0, 0);
+        outline-width: 0rem;
+        background-color: rgb(255, 236, 236);
+    }
+}
+
+.comments {
+}
+
+.scrollcontainer {
+    display: flex;
+
+    border: solid 0.1rem rgb(182, 182, 182);
+    overflow: clip scroll;
+    margin: 1rem auto;
+}
+.article-page {
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.page-style {
     border: inset;
     border-radius: 0.5rem;
-    justify-content: center;
+    margin: 1rem auto;
+    padding: 0.1rem 1rem;
 
     & h2 {
         text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.274);
     }
 
     & ul {
+        margin: auto 1rem;
+        padding: 0 2rem;
         list-style: none;
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        padding: 0;
+        height: 100%;
     }
 }
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: calc(100svh - 10rem);
+}
+
 .body {
     color: black;
     background-color: rgb(221, 221, 221);
