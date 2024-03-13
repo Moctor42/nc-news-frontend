@@ -9,15 +9,14 @@ import { SingleArticle } from './components/pages/SingleArticle'
 function App() {
     return (
         <>
-            <h1>NC News</h1>
-            <div>
-                <Navigation />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/articles" element={<Articles />} />
-                    <Route path="/articles/:article_id" element={<SingleArticle />} />
-                </Routes>
-            </div>
+            <h1>NC News</h1>            
+            <Navigation />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/articles" element={<Articles />} />
+                <Route path="/articles/:article_id" element={<SingleArticle />} />
+            </Routes>
+            
         </>
     )
 }
