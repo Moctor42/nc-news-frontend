@@ -24,7 +24,10 @@ export const SingleArticle = () => {
 
     useEffect(() => {
         patchArticle(article_id, {inc_votes: Number(voteOffset)})
-        .catch((error)=>console.log(error, "vote error!"))
+        .catch((error)=>{
+            setVote(0)
+            console.log(error, "vote error!")
+        })
     }, [vote])
 
 
