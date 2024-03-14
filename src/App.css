@@ -236,6 +236,13 @@ select {
     height: calc(100svh - 16rem);
 }
 
+.topic-dropdown{
+    font-size: 1rem;
+    color: rgb(100, 0, 0);
+    padding: .2rem;
+    margin-bottom: .4rem;
+}
+
 .body {
     color: black;
     background-color: rgb(221, 221, 221);
