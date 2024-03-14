@@ -15,13 +15,13 @@ export const UserSelect = () => {
     }
 
     const listUsers = (users) => {
-        return users.map((user) => <option value={user.username}>{user.username}</option>)
+        return users.map((user) => <option key={user.username} value={user.username}>{user.username}</option>)
     }
 
     return (
         <div>
-            <select name="login" onChange={handleChange}> Login!
-                <option value="" disabled selected> Sign in!</option>
+            <select name="login" defaultValue="" onChange={handleChange}> Login!
+                <option value="" disabled > Sign in!</option>
                 {listUsers(fetchedUsers)}
             </select>
             <p>Current user: {user}</p>

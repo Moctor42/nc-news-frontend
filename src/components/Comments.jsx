@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { fetchComments, formatDate } from '../../utils/utils'
 import { PostComment } from './PostComment'
+import { CommentCard } from './CommentCard'
 
 export const Comments = ({ article_id, user }) => {
     const [isLoading, setIsLoading] = useState(true)
@@ -24,11 +25,7 @@ export const Comments = ({ article_id, user }) => {
     const listComments = (fetchedComments) => {
         if (!fetchedComments) setIsLoading(true)
         return fetchedComments.map((comment) => (
-            <li className="comment" key={comment.comment_id}>
-                <h3>{comment.author}</h3>
-                <h5>{formatDate(comment.created_at)}</h5>
-                <p>{comment.body}</p> <h3>{comment.votes} kudos</h3>
-            </li>
+            <CommentCard key={comment.comment_id} comment={comment} user={user}/>
         ))
     }
 

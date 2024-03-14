@@ -33,6 +33,12 @@ export const postComment = (articleId, body)=>{
         .catch((err) => console.log(err.response.data, 'postComment error!'))
 }
 
+export const deleteComment = (commentId)=>{
+    return axios
+    .delete(`https://nc-news-8n39.onrender.com/api/comments/${commentId}`)
+    .catch((err)=> console.log(err, "deleteComment error!"))
+}
+
 export const fetchUsers = () => {
     return axios
     .get('https://nc-news-8n39.onrender.com/api/users/')
