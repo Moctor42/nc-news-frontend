@@ -2,23 +2,30 @@ import React, { useState } from 'react'
 import { deleteComment, formatDate } from '../../utils/utils'
 
 export const CommentCard = ({ comment, user }) => {
-
     const [deleteStatus, setDeleteStatus] = useState(`Delete comment ${comment.comment_id}?`)
     const [deleted, setDeleted] = useState(false)
+    const [disabled, setDisabled] = useState("false")
 
     const handleDelete = (event, id) => {
-        event.target.disabled = "true"
+        setDisabled("true")
         setDeleteStatus(`deleting comment ${id}!`)
-        deleteComment(id)
-        .then(() => setDeleted(true))
-        .catch(err => {
-            console.log(err)
-            event.target.disabled = "false"
-            setDeleteStatus("try again...")
-        })
+        setTimeout(() => {
+            deleteComment(id)
+            .then((response) => setDeleted(response))
+            .catch(() => {
+                setDisabled('false')
+                console.log(event.target.disabled)
+                setDeleteStatus('try again...')
+            })
+        }, 200);
     }
 
-    if (deleted) return (<li className="comment" key={comment.comment_id}><h4>comment was deleted!</h4></li>)
+    if (deleted)
+        return (
+            <li className="comment" key={comment.comment_id}>
+                <h4>comment was deleted!</h4>
+            </li>
+        )
 
     return (
         <li className="comment" key={comment.comment_id}>
@@ -28,7 +35,7 @@ export const CommentCard = ({ comment, user }) => {
             <div className="comment-stats">
                 <h4>{comment.votes} kudos</h4>
                 {user === comment.author ? (
-                    <button className="comment-button" onClick={(event)=> handleDelete(event, comment.comment_id)}>
+                    <button className="comment-button" onClick={(event) => handleDelete(event, comment.comment_id)}>
                         {' '}
                         {deleteStatus}{' '}
                     </button>
