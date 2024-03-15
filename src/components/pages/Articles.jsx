@@ -69,7 +69,7 @@ export const Articles = () => {
 
     return (
         <div className="page page-style">
-            <h2>Articles</h2>
+            <h2 className='page-header'>Articles</h2>
             <div className="filters">
                 <TopicDropdown topic={topic} setTopic={setTopic} />
                 <SortDropdown sort={sort} setSort={setSort} order={order} setOrder={setOrder} />
@@ -82,7 +82,7 @@ export const Articles = () => {
                     <ul> {makeList(fetchedArticles)} </ul>
                 </div>
             ) : (
-                <p> bad query :( </p>
+                <p> {"We couldn't find what you were looking for... Try using the dropdowns to narrow down your search!"} </p>
             )}
         </div>
     )

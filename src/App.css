@@ -6,8 +6,8 @@ button {
     color: black;
     background-color: white;
     border: none;
-    border-radius: .3rem;
-    outline: solid .2rem red;
+    border-radius: 0.3rem;
+    outline: solid 0.2rem red;
 }
 
 #root {
@@ -135,18 +135,18 @@ select {
         color: rgb(100, 0, 0);
         font-size: 1.2rem;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.479);
-        margin: .5rem auto .1rem;
+        margin: 0.5rem auto 0.1rem;
     }
 
     & h4 {
-        margin: .3rem;
+        margin: 0.3rem;
     }
 
     & h5 {
         margin: 0;
     }
 
-    & .comment-stats{
+    & .comment-stats {
         display: flex;
         justify-content: space-between;
         & button {
@@ -193,8 +193,6 @@ select {
     }
 }
 
-
-
 .scrollcontainer {
     display: flex;
     z-index: 1;
@@ -215,10 +213,10 @@ select {
     margin: 1rem auto;
     padding: 0.1rem 1rem;
 
-    & h2 {
+    & .page-header {
         color: rgb(90, 0, 0);
         font-weight: 700;
-        text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.274)
+        text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.274);
     }
 
     & ul {
@@ -236,11 +234,11 @@ select {
     height: calc(100svh - 16rem);
 }
 
-.query-dropdown{
+.query-dropdown {
     font-size: 1rem;
     color: rgb(100, 0, 0);
-    padding: .2rem;
-    margin: .4rem;
+    padding: 0.2rem;
+    margin: 0.4rem;
     min-width: 10rem;
 }
 
@@ -283,6 +281,7 @@ select {
 }
 
 .loading {
+    color: red;
     animation: load 0.2s ease-out 0s infinite alternate;
     margin: auto;
 }

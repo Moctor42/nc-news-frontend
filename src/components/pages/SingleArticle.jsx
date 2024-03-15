@@ -10,33 +10,37 @@ export const SingleArticle = () => {
 
     const [article, setArticle] = useState('')
     const [isLoading, setIsLoading] = useState(true)
+    const [isSuccessful, setIsSuccessful] = useState(false)
     const [vote, setVote] = useState(0)
     const [voteOffset, setVoteOffset] = useState(0)
 
     const voteCount = Number(vote) + Number(article.votes)
 
     useEffect(() => {
-        fetchSingleArticle(article_id).then((response) => {
-            setArticle(response)
-            setIsLoading(false)
-        })
+        fetchSingleArticle(article_id)
+            .then((response) => {
+                setArticle(response)
+                setIsSuccessful(true)
+                setIsLoading(false)
+            })
+            .catch((error) => {
+                console.log(error.response.data)
+                setIsSuccessful(false)
+                setIsLoading(false)
+            })
     }, [])
 
     useEffect(() => {
-        patchArticle(article_id, {inc_votes: Number(voteOffset)})
-        .catch((error)=>{
+        patchArticle(article_id, { inc_votes: Number(voteOffset) }).catch((error) => {
             setVote(0)
-            console.log(error, "vote error!")
+            console.log(error, 'vote error!')
         })
     }, [vote])
 
-
-
     const handleVote = (event) => {
-
         const value = Number(event.target.value)
         if (vote !== value) {
-            setVoteOffset(value + (vote * -1))
+            setVoteOffset(value + vote * -1)
             setVote(value)
         }
         if (vote === value) {
@@ -53,8 +57,9 @@ export const SingleArticle = () => {
         <div className="article-page page-style">
             {isLoading ? (
                 <h2 className="loading">loading...</h2>
-            ) : (
-                <article>
+            ) : isSuccessful ? (
+                <div>
+                    <article>
                     <h2>{article.title}</h2>
                     <p>
                         {' '}
@@ -74,8 +79,12 @@ export const SingleArticle = () => {
                         </button>
                     </div>
                 </article>
-            )}
-            <Comments article_id={article_id} user={user}/>
+                <Comments article_id={article_id} user={user} />
+                </div>
+                
+            ) : (
+                <h2>Couldn't find that...</h2>
+                )}
         </div>
     )
 }
