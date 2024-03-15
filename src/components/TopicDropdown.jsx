@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { fetchTopics } from '../../utils/utils'
 
-export const TopicDropdown = ({ searchParams, setSearchParams, topicQuery }) => {
+export const TopicDropdown = ({ topic, setTopic }) => {
     const [fetchedTopics, setFetchedTopics] = useState()
-    const [topic, setTopic] = useState(topicQuery)
 
     useEffect(() => {
         fetchTopics().then((response) => {
-            setTopic(topicQuery)
             setFetchedTopics(response)
         })
     }, [])
 
     const handleChange = (event) => {
         setTopic(event.target.value)
-        searchParams.set('topic', event.target.value)
-        setSearchParams(searchParams)
     }
 
     const listTopics = (topics) => {
@@ -29,7 +25,7 @@ export const TopicDropdown = ({ searchParams, setSearchParams, topicQuery }) => 
 
     if (fetchedTopics)
         return (
-            <select className="topic-dropdown" value={topic} onChange={handleChange}>
+            <select className="query-dropdown" value={topic} onChange={handleChange}>
                 <option value="">All Topics</option>
                 {listTopics(fetchedTopics)}
             </select>
