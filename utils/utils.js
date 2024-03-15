@@ -4,7 +4,6 @@ export const fetchSingleArticle = (articleId) => {
     return axios
         .get(`https://nc-news-8n39.onrender.com/api/articles/${articleId}`)
         .then((response) => response.data.article)
-        .catch((err) => console.log('fetchSingleArticle axios error!'))
 }
 
 export const fetchArticles = (query) => {
