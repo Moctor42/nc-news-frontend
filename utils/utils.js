@@ -15,7 +15,6 @@ export const fetchArticles = (query) => {
     return axios
         .get(url)
         .then((response) => response.data.articles)
-        .catch((err) => console.log('fetchArticles axios error!'))
 }
 
 export const fetchComments = (articleId) => {
