@@ -65,6 +65,7 @@ export const SingleArticle = () => {
                         {' '}
                         posted in {article.topic} by {article.author} on {formatDate(article.created_at)}
                     </p>
+                    <img className='article-image' src={article.article_img_url}/>
                     <p className="body">{article.body}</p>
                     <p style={{ fontWeight: 'bold' }}>
                         {' '}
