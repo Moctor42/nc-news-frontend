@@ -1,9 +1,12 @@
 # NC News React/Vite app
 
-hosted at:
-> [(https://nc-news-db.netlify.app/)]
+site hosted at:  
+https://nc-news-db.netlify.app/
 
-Frontend for nc-news backend (https://github.com/Moctor42/nc-news)
+The Back-end repo for this project:  
+https://github.com/Moctor42/nc-news
+
+---
 
 A news site where users can browse articles.
 
@@ -13,8 +16,7 @@ For demonstration purposes users can be switched via the dropdown at the top.
 
 minimum node version v21.5.0
 
-if you would like to run this repo locally
+if you would like to run this repo locally:
 
-git clone https://github.com/Moctor42/nc-news-frontend
-
-npm install
+`git clone https://github.com/Moctor42/nc-news-frontend`  
+`npm install`
