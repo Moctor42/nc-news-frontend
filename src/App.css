@@ -47,6 +47,9 @@ a {
 
 article {
     margin-bottom: 1rem;
+    & .article-image {
+        border-radius: 2rem;
+    }
 }
 
 .navbutton {
@@ -252,10 +255,12 @@ select {
 }
 
 .card {
+    display: flex;
+    justify-content: space-between;
     margin: 0.5rem 0;
     padding: 0 0.5rem;
     width: auto;
-    height: 128px;
+    height: 10rem;
     border: solid;
     border-radius: 0.2rem;
     text-align: start;
@@ -266,6 +271,9 @@ select {
         font-size: 0.8rem;
     }
     & img {
+        margin: .2rem;
+        border-radius: 1rem;
+        object-fit: contain;
     }
 }
 

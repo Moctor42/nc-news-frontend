@@ -40,7 +40,8 @@ export const CommentCard = ({ comment, user }) => {
                         {deleteStatus}{' '}
                     </button>
                 ) : (
-                    <button> like! </button>
+                    // <button> like! </button>
+                    <div/>
                 )}
             </div>
         </li>
